@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <title>Sailor Moon RPG</title>
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto|Sail" rel="stylesheet">
     <script src="assets/javascript/game.js"></script>
@@ -14,12 +15,24 @@
         <div class="main">
             <h1>Sailor Moon RPG</h1>
             <p>Sailor Moon needs your help! You can only rescue one sailor scouts to wake the others from the grasp of the Negaforce!</p>
-            <div class="piccontainers">
-                <span id ="mars"><img src="assets/images/attmars.jpg" alt="attack mars"></span>
-                <span id ="jupiter"><img src="assets/images/attjupi.jpg" alt="attack jupiter"></span>
-                <span id="venus"><img src="assets/images/attvenu.jpg" alt="attack venus"></span>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm" id="vcol">
+                        <span id ="venus"><img src="assets/images/selvenu.jpg" alt="venus"><p id="vhp">200</p></span>
+                    </div>
+                    <div class="col-sm" id="mecol">
+                        <span id ="merc"><img src="assets/images/selmerc.jpg" alt="mercury"><p id="mehp">150</p></span>
+                    </div>
+                    <div class="col-sm" id="jcol">
+                        <span id="jupiter"><img src="assets/images/seljupi.jpg" alt="jupiter"><p id="jhp">175</p></span>
+                    </div>
+                    <div class="col-sm" id="macol">
+                        <span id="mars"><img src="assets/images/selmars.jpg" alt="mars"><p id="mahp">225</p></span>
+                    </div>
+                </div>
             </div>
             <button>Defend!</button>
+            <div id="battlebox"></div>
         </div>
     </div>
 </body>
