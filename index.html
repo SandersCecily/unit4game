@@ -2,38 +2,35 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Sailor Moon RPG</title>
+    <title>Pearl Collector Collector</title>
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Raleway" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Sail" rel="stylesheet">
-    <script src="assets/javascript/game.js"></script>
+    
 </head>
 <body>
-    <div class="contain">
-        <img src="assets/images/divframe.png" alt="decorative frame" id="frame">
-        <div class="main">
-            <h1>Sailor Moon RPG</h1>
-            <p>Sailor Moon needs your help! You can only rescue one sailor scouts to wake the others from the grasp of the Negaforce!</p>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm" id="vcol">
-                        <span id ="venus"><img src="assets/images/selvenu.jpg" alt="venus"><p id="vhp">200</p></span>
-                    </div>
-                    <div class="col-sm" id="mecol">
-                        <span id ="merc"><img src="assets/images/selmerc.jpg" alt="mercury"><p id="mehp">150</p></span>
-                    </div>
-                    <div class="col-sm" id="jcol">
-                        <span id="jupiter"><img src="assets/images/seljupi.jpg" alt="jupiter"><p id="jhp">175</p></span>
-                    </div>
-                    <div class="col-sm" id="macol">
-                        <span id="mars"><img src="assets/images/selmars.jpg" alt="mars"><p id="mahp">225</p></span>
-                    </div>
-                </div>
-            </div>
-            <button>Defend!</button>
-            <div id="battlebox"></div>
-        </div>
+    <div class="textbox">
+        <h1>Pearl Collecting Game</h1>
+        <h3>Alright rookie, listen up. Each pearl is worth a different amount. Click each pearl to collect. Listen strictly to the Captian's orders, no more, no less.</h3>
     </div>
+    <div class="scoreboard">
+        <p>Currently Collected : <span id="counter"></span> </p>
+        <p>Goal to Collect : <span id="goal"></span></p>
+        <p>Wins : <span id="win"></span></p>
+        <p>Losses : <span id="loss"></span></p>
+    </div>
+    <div class="pearlboxes">
+        <img src="assets/images/blue.png" alt="blue pearl" id="blue">
+        <img src="assets/images/pink.png" alt="pink pearl" id="pink">
+        <img src="assets/images/yellow.png" alt="yellow pearl" id="yellow">
+        <img src="assets/images/green.png" alt="green pearl" id="green">
+    </div>
+ 
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.slim.js"
+        integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+        crossorigin="anonymous">
+    </script>
+    <script src="assets/javascript/game.js"></script>
 </body>
 </html>

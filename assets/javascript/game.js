@@ -1,47 +1,73 @@
-let hp = 150;
-let att = 10;
-let incer = 30;
-let marsatt = 20;
-let marshp = 250;
-let jupiatt = 20;
-let jupihp = 175;
-let venusatt = 15;
-let venushp = 175;
-let arr=[hp, att];
+$(function() {
+    
+    //variables
+    let bpearl = $("#blue");                             //blue pearl object
+    let ppearl = $("#pink");                             //pink pearl object
+    let ypearl = $("#yellow");                            //yellow pearl object
+    let gpearl = $("#green");                             //green pearl object
+    let counter = 0;                                     //counts player score
+    let goal = Math.floor(Math.random()*120) + 19;       //the randomly generated number to get to
+    let wins = 0                                         //win counter
+    let losses = 0;                                      //loss counter
+    let bval = pearlgen();                               //random value of the blue pearl
+    let pval = pearlgen();                               //random value of the pink pearl
+    let yval = pearlgen();                               //random value of the yellow pearl
+    let gval = pearlgen();                               //random value of the green pearl
+    
+    //adding click event listeners to pearls
+    bpearl.click(function(){
+        adder(bval, goal, wins, losses);
+    });
+    ppearl.click(function(){
+        adder(pval, goal, wins, losses);
+    });
+    ypearl.click(function(){
+        adder(yval, goal, wins, losses);
+    });
+    gpearl.click(function(){
+        adder(gval, goal, wins, losses);
+    });
 
-console.log(arr);
-function battle(opphp, oppatt, i, hp, att){
-    console.log("You begins the fight at " + hp + " health points and "
-    + att + " attack points.");
-    console.log("Your opponent begins the fight at " + opphp + " health points and "
-    + oppatt + " attack points.");
-    for(hp; hp>0; ){
-        //if opponent faints first
-        if(opphp< 0){
-            console.log("You won.");
-            break;
-        } 
-        //if you faint
-        else if (hp<0){
-            console.log("You lost.");
-            break;
+    //makes a new game
+    function newgame (){
+        bval = pearlgen();
+        pval = pearlgen();
+        gval = pearlgen();
+        yval = pearlgen();
+        goal = Math.floor(Math.random()*120) + 19;
+        counter = 0;
+    }
+
+    //makes the random values for the pearls
+    function pearlgen (){
+        let num = Math.floor(Math.random()*12) + 1;
+        return num;
+    }
+
+    //display the stats
+    function displayer(cnt,goal,win,loss){
+        $("#counter").text(cnt);
+        $("#goal").text(goal);
+        $("#win").text(win);
+        $("#loss").text(loss);
+    }
+
+    //adds with each click
+    function adder (val, goal, wins, losses){
+        counter=val+counter;
+        if (counter>goal){
+            losses++;
+            displayer(counter,goal,wins,losses);
+            newgame();
         }
-        //continue battle
+        else if (counter === goal){
+            win++;
+            displayer(counter,goal,wins,losses);
+            newgame();
+        }
         else{
-            opphp= opphp - att;
-            console.log("Opponent at : " + opphp + " Health points");
-            att = att + i;
-            console.log("Your attack is now : " + att + " Attack Points");
-            hp = hp-oppatt;
-            console.log("You are at : " + hp + " Health points");
+            displayer(counter,goal,wins,losses);
         }
-    };
-    return [hp, att];
-};
+    }
 
-arr = battle(jupihp, jupiatt, incer, hp, att);
-console.log(arr);
-arr = battle(venushp, venusatt, incer, arr[0], arr[1]);
-console.log(arr);
-arr = battle(marshp, marsatt, incer, arr[0], arr[1]);
-console.log(arr); 
+});
