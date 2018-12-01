@@ -14,12 +14,12 @@ $(function() {
     let yval = pearlgen();                               //random value of the yellow pearl
     let gval = pearlgen();                               //random value of the green pearl
     
+
     //adding click event listeners to pearls
     bpearl.click(function(){
-        adder(bval, goal, wins, losses);
+        adder(bval);
         if (counter === goal){
             wins++;
-            console.
             displayer(counter,goal,wins,losses);
             newgame();
         }
@@ -33,14 +33,14 @@ $(function() {
         }
     });
     ppearl.click(function(){
-        adder(pval, goal, wins, losses);
-        if (counter>goal){
-            losses++;
+        adder(pval);
+        if (counter === goal){
+            wins++;
             displayer(counter,goal,wins,losses);
             newgame();
         }
-        else if (counter === goal){
-            win++;
+        else if (counter>goal){
+            losses++;
             displayer(counter,goal,wins,losses);
             newgame();
         }
@@ -49,14 +49,14 @@ $(function() {
         }
     });
     ypearl.click(function(){
-        adder(yval, goal, wins, losses);
-        if (counter>goal){
-            losses++;
+        adder(yval);
+        if (counter === goal){
+            wins++;
             displayer(counter,goal,wins,losses);
             newgame();
         }
-        else if (counter === goal){
-            win++;
+        else if (counter>goal){
+            losses++;
             displayer(counter,goal,wins,losses);
             newgame();
         }
@@ -65,14 +65,14 @@ $(function() {
         }
     });
     gpearl.click(function(){
-        adder(gval, goal, wins, losses);
-        if (counter>goal){
-            losses++;
+        adder(gval);
+        if (counter === goal){
+            wins++;
             displayer(counter,goal,wins,losses);
             newgame();
         }
-        if (counter === goal){
-            win++;
+        else if (counter>goal){
+            losses++;
             displayer(counter,goal,wins,losses);
             newgame();
         }
@@ -106,21 +106,8 @@ $(function() {
     }
 
     //adds with each click
-    function adder (val, goal, wins, losses){
+    function adder (val){
         counter=val+counter;
-        // if (counter>goal){
-        //     losses++;
-        //     displayer(counter,goal,wins,losses);
-        //     newgame();
-        // }
-        // else if (counter === goal){
-        //     win++;
-        //     displayer(counter,goal,wins,losses);
-        //     newgame();
-        // }
-        // else{
-        //     displayer(counter,goal,wins,losses);
-        // }
     }
 
 });
